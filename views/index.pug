@@ -9,20 +9,27 @@ block content
           <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
             <header class="modal__header">
               <h2 class="modal__title" id="modal-1-title">
-                 Try Sending a message
+                 Try '#{data.item1}'
               </h2>
               <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
             <main class="modal__content" id="modal-1-content">
-              <p>
-                Try Write me a message and email it to me. Also, <code>esc</code> to close window.
+              <p id="h" innerText = "submitted!">
+                 Try Write me a message and email it to me. Also, <code>esc</code> to close window.
               </p>
-                 <label for="website">Message:</label>
-                 <textarea style="resize: none;" name="website" cols="47" rows="6"></textarea>
+                
 
+                <label id="m_message" for="website"></label>
+                <script>
+                      document.getElementById("m-send").value="Close Curtain"
+                </script>
+                  
+                 <textarea id="tt" style="resize: none;" name="website" cols="47" rows="6"></textarea>
+
+                    
             </main>
             <footer class="modal__footer">
-              <button class="modal__btn modal__btn-primary">Send</button>
+              <button id="m-send"  class="modal__btn modal__btn-primary" onclick='f2()' onload='f3()'></button>
               //<button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
             </footer>
           </div>
@@ -33,4 +40,20 @@ block content
       <button class="myButton" onclick='f1()'>Clic Clic</button>
 
       script.
-        var f1 = function() {MicroModal.init(); MicroModal.show('modal-1');}
+        var f1 = function() {
+        MicroModal.init(); 
+        MicroModal.show('modal-1');
+        }
+
+      script.
+        var f2 = function() {document.getElementById("tt").value='#{data.item1}'+"1233" ;
+        }
+
+      script.
+        var f3 = function() {
+            let a = 1;
+            if (a==120)
+                {document.getElementById("m-send").value='#{data.item1}';}
+            else
+                {document.getElementById("m-send").text='#{data.item2}'; }
+        }
